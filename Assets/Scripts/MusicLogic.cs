@@ -19,7 +19,7 @@ public class MusicLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!gameManager.gameOver && spawnManager.spawningActive && !isPlayingLoadingMusic)
+        if(!gameManager.gameOver && !spawnManager.spawningActive && !isPlayingLoadingMusic)
         {
             isPlayingLoadingMusic = true;
             musicSource.clip = tracks[0];
@@ -33,7 +33,7 @@ public class MusicLogic : MonoBehaviour
             musicSource.loop = true;
             musicSource.Play();
         }
-        else if (gameManager.gameOver && !hasSwitchedToGameOverMusic && spawnManager.spawningActive)
+        else if (gameManager.gameOver && !hasSwitchedToGameOverMusic && !spawnManager.spawningActive)
         {
             hasSwitchedToGameOverMusic = true;
             musicSource.clip = tracks[2];
